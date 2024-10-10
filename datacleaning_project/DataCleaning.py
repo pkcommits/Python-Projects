@@ -42,7 +42,7 @@ def clean(chunk):
     df.columns = df.columns.str.strip().str.lower().str.replace(' ', '_', regex=False)
 
     # Remove white spaces from all columns
-    df = df.applymap(lambda x: x.strip() if isinstance(x, str) else x)
+    df = df.applymap(lambda x: x.strip().lower() if isinstance(x, str) else x)
 
     #Convert data types
     df['date_added'] = pd.to_datetime(df['date_added'])
