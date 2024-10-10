@@ -17,9 +17,10 @@ formatted_path = format_path(input_path)
 
 def convert_duration(duration):
     if isinstance(duration, str):  # Check if duration is a string
+        duration = duration.strip().lower()
         if 'season' in duration:
-            seasons = int(duration.split()[0])
-            run_time_s = seasons * 50
+            seasons = int(duration.split()[0]) if duration.split() else 0
+            run_time_s = int(seasons * 50)
             return run_time_s
         elif 'min' in duration:
             run_time_m = int(duration.split()[0])
