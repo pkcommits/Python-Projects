@@ -1,8 +1,10 @@
 import numpy as np
 import pandas as pd
 
+
 input_path = input("Enter file path: ")
 chunk_size = int(input("Enter chunk size: "))
+output_path = 'D:\datascience\output\output_file.csv'
 
 def format_path(input_path):
     input_path = input_path.strip() 
@@ -70,5 +72,10 @@ def data_split(formatted_path, chunk_size):
 
 #Call the data split function
 Cleaned_data = data_split(formatted_path, chunk_size)
-print(Cleaned_data.info())
+Cleaned_data.to_csv(output_path, index=False)
+
+print(f"CSV file saved at: {output_path}")
+
+
+
 
